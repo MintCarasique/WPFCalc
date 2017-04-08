@@ -84,7 +84,7 @@ namespace Calculator
                     rightop = (num1 - num2).ToString();
                     break;
                 case "*":
-                    rightop = (num1 + num2).ToString();
+                    rightop = (num1 * num2).ToString();
                     break;
                 case "/":
                     rightop = (num1 / num2).ToString();
