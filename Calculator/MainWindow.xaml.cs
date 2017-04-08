@@ -36,6 +36,33 @@ namespace Calculator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string s = (string)((Button)e.OriginalSource).Content;
+            textBlock.Text += s;
+            int num;
+            bool result = Int32.TryParse(s, out num);
+            if (result)
+                if (operation == "")
+                    leftop += s;
+                else
+                    rightop += s;
+            else
+            {
+                if (s == "")
+                {
+                    textBlock.Text += rightop;
+                    operation = "";
+                }
+                else if (s == "CLEAR")
+                {
+                    leftop = "";
+                    rightop = "";
+                    operation = "";
+                    textBlock.Text = "";
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }
