@@ -46,8 +46,9 @@ namespace Calculator
                     rightop += s;
             else
             {
-                if (s == "")
+                if (s == "=")
                 {
+                    Update_RightOp();
                     textBlock.Text += rightop;
                     operation = "";
                 }
@@ -60,8 +61,34 @@ namespace Calculator
                 }
                 else
                 {
-
+                    if (rightop != "")
+                    {
+                        Update_RightOp();
+                        leftop = rightop;
+                        rightop = "";
+                    }
+                    operation = s;
                 }
+            }
+        }
+        private void Update_RightOp()
+        {
+            int num1 = Int32.Parse(leftop);
+            int num2 = Int32.Parse(rightop);
+            switch (operation)
+            {
+                case "+":
+                    rightop = (num1 + num2).ToString();
+                    break;
+                case "-":
+                    rightop = (num1 - num2).ToString();
+                    break;
+                case "*":
+                    rightop = (num1 + num2).ToString();
+                    break;
+                case "/":
+                    rightop = (num1 / num2).ToString();
+                    break;
             }
         }
     }
